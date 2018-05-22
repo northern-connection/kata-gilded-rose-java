@@ -21,8 +21,28 @@ class GildedRose {
                 item.quality = decreaseQualityByOne(item);
             }
         }
+        if (isAgedBrie(item))
+        {
+            if (item.quality < MAX_QUALITY) {
+                item.quality = increaseQualityByOne(item);
 
-        if (isAgedBrie(item) || isBackstage(item))
+                if (isBackstage(item)) {
+                    if (item.sellIn < 11) {
+                        if (item.quality < MAX_QUALITY) {
+                            item.quality = increaseQualityByOne(item);
+                        }
+                    }
+
+                    if (item.sellIn < 6) {
+                        if (item.quality < MAX_QUALITY) {
+                            item.quality = increaseQualityByOne(item);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (isBackstage(item))
         {
             if (item.quality < MAX_QUALITY) {
                 item.quality = increaseQualityByOne(item);
