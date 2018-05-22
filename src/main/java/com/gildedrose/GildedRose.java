@@ -28,16 +28,13 @@ class GildedRose {
             }
         } else if (isBackstage(item)) {
             if (item.sellIn > 10) {
-                increaseQualityByOne(item);
+                increaseQualitySeveralTimes(item, 1);
             }
             if (item.sellIn > 5 && item.sellIn <= 10 ) {
-                increaseQualityByOne(item);
-                increaseQualityByOne(item);
+                increaseQualitySeveralTimes(item, 2);
             }
             if (item.sellIn <= 5) {
-                increaseQualityByOne(item);
-                increaseQualityByOne(item);
-                increaseQualityByOne(item);
+                increaseQualitySeveralTimes(item, 3);
             }
 
             decreaseExpirationDaysByOne(item);
@@ -50,6 +47,12 @@ class GildedRose {
             if (hasExpired(item)) {
                 decreaseQualityByOne(item);
             }
+        }
+    }
+
+    private void increaseQualitySeveralTimes(Item item, int times) {
+        for (int i = 0; i < times ; i++) {
+            increaseQualityByOne(item);
         }
     }
 
