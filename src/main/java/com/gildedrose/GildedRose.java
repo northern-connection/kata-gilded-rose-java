@@ -22,7 +22,9 @@ class GildedRose {
                     item.quality = decreaseQualityByOne(item);
                 }
             }
-        } else {
+        }
+        if (isAgedBrie(item) || isBackstage(item))
+        {
             if (item.quality < MAX_QUALITY) {
                 item.quality = increaseQualityByOne(item);
 
