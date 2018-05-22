@@ -68,10 +68,6 @@ class GildedRose {
         }
     }
 
-    private boolean isRegular(Item item) {
-        return !isAgedBrie(item) && !isBackstage(item) && !isSulfuras(item);
-    }
-
     private int decreaseExpirationDaysByOne(Item item) {
         return item.sellIn - 1;
     }
