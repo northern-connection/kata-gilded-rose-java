@@ -45,8 +45,14 @@ class GildedRose {
                         decreaseQualityByOne(item);
                     }
                 } else {
+                }
+
+                if (!isBackstage(item)) {
+                } else {
                     lostAllQuality(item);
                 }
+
+
             } else {
                 increaseQualityByOne(item);
             }
