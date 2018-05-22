@@ -1,17 +1,17 @@
 package com.gildedrose;
 
 class GildedRose {
-    public static final int MIN_QUALITY = 0;
-    public static final int MAX_QUALITY = 50;
+    private static final int MIN_QUALITY = 0;
+    private static final int MAX_QUALITY = 50;
     Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
     }
 
-    public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            updateQualityItem(items[i]);
+    void updateQuality() {
+        for (Item item : items) {
+            updateQualityItem(item);
         }
     }
 
