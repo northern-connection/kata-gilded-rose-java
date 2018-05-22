@@ -22,7 +22,7 @@ class GildedRose {
 
         if (isAgedBrie(item)) {
             increaseQualityByOne(item);
-            item.sellIn = decreaseExpirationDaysByOne(item);
+            decreaseExpirationDaysByOne(item);
             if (hasExpired(item)) {
                 increaseQualityByOne(item);
             }
@@ -35,17 +35,21 @@ class GildedRose {
             if (item.sellIn < 6) {
                 increaseQualityByOne(item);
             }
-            item.sellIn = decreaseExpirationDaysByOne(item);
+            decreaseExpirationDaysByOne(item);
             if (hasExpired(item)) {
                 lostAllQuality(item);
             }
         } else {
             decreaseQualityByOne(item);
-            item.sellIn = decreaseExpirationDaysByOne(item);
+            decreaseExpirationDaysByOne(item);
             if (hasExpired(item)) {
                 decreaseQualityByOne(item);
             }
         }
+    }
+
+    private void decreaseExpirationDaysByOne(Item item) {
+        item.sellIn = item.sellIn - 1;
     }
 
     private boolean hasExpired(Item item) {
@@ -66,10 +70,6 @@ class GildedRose {
         if (item.quality > MIN_QUALITY) {
             item.quality = item.quality - 1;
         }
-    }
-
-    private int decreaseExpirationDaysByOne(Item item) {
-        return item.sellIn - 1;
     }
 
     private boolean isSulfuras(Item item) {
