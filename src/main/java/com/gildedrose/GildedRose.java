@@ -16,6 +16,10 @@ class GildedRose {
     }
 
     private void updateQualityItem(Item item) {
+        if (isSulfuras(item)) {
+            return;
+        }
+
         if (isAgedBrie(item)) {
             increaseQualityByOne(item);
             item.sellIn = decreaseExpirationDaysByOne(item);
