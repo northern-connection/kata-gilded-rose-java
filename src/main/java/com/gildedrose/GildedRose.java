@@ -37,9 +37,6 @@ class GildedRose {
             item.sellIn = decreaseExpirationDaysByOne(item);
         }
 
-        if (!isSulfuras(item)) {
-        }
-
         if (isRegular(item)) {
             if (hasExpired(item)) {
                 decreaseQualityByOne(item);
