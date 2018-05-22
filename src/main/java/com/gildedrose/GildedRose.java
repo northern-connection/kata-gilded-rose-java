@@ -27,14 +27,19 @@ class GildedRose {
                 increaseQualityByOne(item);
             }
         } else if (isBackstage(item)) {
-            increaseQualityByOne(item);
-            if (item.sellIn < 11) {
+            if (item.sellIn > 10) {
+                increaseQualityByOne(item);
+            }
+            if (item.sellIn > 5 && item.sellIn <= 10 ) {
+                increaseQualityByOne(item);
+                increaseQualityByOne(item);
+            }
+            if (item.sellIn <= 5) {
+                increaseQualityByOne(item);
+                increaseQualityByOne(item);
                 increaseQualityByOne(item);
             }
 
-            if (item.sellIn < 6) {
-                increaseQualityByOne(item);
-            }
             decreaseExpirationDaysByOne(item);
             if (hasExpired(item)) {
                 lostAllQuality(item);
