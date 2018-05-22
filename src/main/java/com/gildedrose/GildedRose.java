@@ -16,13 +16,6 @@ class GildedRose {
     }
 
     private void updateQualityItem(Item item) {
-        if (isRegular(item)) {
-            decreaseQualityByOne(item);
-            item.sellIn = decreaseExpirationDaysByOne(item);
-            if (hasExpired(item)) {
-                decreaseQualityByOne(item);
-            }
-        }
         if (isAgedBrie(item)) {
             increaseQualityByOne(item);
             item.sellIn = decreaseExpirationDaysByOne(item);
@@ -43,6 +36,14 @@ class GildedRose {
             item.sellIn = decreaseExpirationDaysByOne(item);
             if (hasExpired(item)) {
                 lostAllQuality(item);
+            }
+        }
+
+        if (isRegular(item)) {
+            decreaseQualityByOne(item);
+            item.sellIn = decreaseExpirationDaysByOne(item);
+            if (hasExpired(item)) {
+                decreaseQualityByOne(item);
             }
         }
     }
