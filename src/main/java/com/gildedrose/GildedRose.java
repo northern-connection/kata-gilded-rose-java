@@ -45,12 +45,16 @@ class GildedRose {
                         decreaseQualityByOne(item);
                     }
                 } else {
-                    item.quality = 0;
+                    lostAllQuality(item);
                 }
             } else {
                 increaseQualityByOne(item);
             }
         }
+    }
+
+    private void lostAllQuality(Item item) {
+        item.quality = 0;
     }
 
     private void increaseQualityByOne(Item item) {
