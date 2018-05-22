@@ -38,9 +38,6 @@ class GildedRose {
                 increaseQualityByOne(item);
             }
             item.sellIn = decreaseExpirationDaysByOne(item);
-        }
-
-        if (isBackstage(item)) {
             if (hasExpired(item)) {
                 lostAllQuality(item);
             }
