@@ -20,12 +20,15 @@ class GildedRose {
             return;
         }
 
+        PerishableItem perishableItem = null;
         if (isAgedBrie(item)) {
-            increaseQualityByOne(item);
-            decreaseExpirationDaysByOne(item);
-            if (hasExpired(item)) {
-                increaseQualityByOne(item);
-            }
+            perishableItem = new AgedBrie(item);
+        } else if (isBackstage(item)) {
+        } else {
+        }
+
+        if (isAgedBrie(item)) {
+            perishableItem.age();
         } else if (isBackstage(item)) {
             if (item.sellIn > 10) {
                 increaseQualitySeveralTimes(item, 1);
