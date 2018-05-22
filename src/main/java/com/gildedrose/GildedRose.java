@@ -43,7 +43,7 @@ class GildedRose {
 		}
 
 		if (!isSulfuras(item)) {
-			item.sellIn = item.sellIn - 1;
+			item.sellIn = decreaseStockByOne(item);
 		}
 
 		if (item.sellIn < 0) {
@@ -63,6 +63,10 @@ class GildedRose {
 				}
 			}
 		}
+	}
+
+	private int decreaseStockByOne(Item item) {
+		return item.sellIn - 1;
 	}
 
 	private int increaseQualityByOne(Item item) {
