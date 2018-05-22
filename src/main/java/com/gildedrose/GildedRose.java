@@ -47,7 +47,7 @@ class GildedRose {
         }
 
         if (!isSulfuras(item)) {
-            item.sellIn = decreaseStockByOne(item);
+            item.sellIn = decreaseExpirationDaysByOne(item);
         }
 
         if (item.sellIn < 0) {
@@ -73,7 +73,7 @@ class GildedRose {
         return !isAgedBrie(item) && !isBackstage(item) && !isSulfuras(item);
     }
 
-    private int decreaseStockByOne(Item item) {
+    private int decreaseExpirationDaysByOne(Item item) {
         return item.sellIn - 1;
     }
 
