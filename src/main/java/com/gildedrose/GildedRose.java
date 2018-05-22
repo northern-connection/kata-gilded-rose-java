@@ -55,13 +55,13 @@ class GildedRose {
 
     private void increaseQ(Item item) {
         if (item.quality < MAX_QUALITY) {
-            item.quality = increaseQualityByOne(item);
+            item.quality = item.quality + 1;
         }
     }
 
     private void decreaseQ(Item item) {
         if (item.quality > MIN_QUALITY) {
-            item.quality = decreaseQualityByOne(item);
+            item.quality = item.quality - 1;
         }
     }
 
@@ -71,14 +71,6 @@ class GildedRose {
 
     private int decreaseExpirationDaysByOne(Item item) {
         return item.sellIn - 1;
-    }
-
-    private int increaseQualityByOne(Item item) {
-        return item.quality + 1;
-    }
-
-    private int decreaseQualityByOne(Item item) {
-        return item.quality - 1;
     }
 
     private boolean isSulfuras(Item item) {
