@@ -55,7 +55,7 @@ class GildedRose {
                         }
                     }
                 } else {
-                    item.quality = item.quality - item.quality;
+                    item.quality = 0;
                 }
             } else {
                 if (item.quality < MAX_QUALITY) {
