@@ -1,6 +1,8 @@
 package com.gildedrose;
 
 class GildedRose {
+	public static final int MIN_QUALITY = 0;
+	public static final int MAX_QUALITY = 50;
 	Item[] items;
 
 	public GildedRose(Item[] items) {
@@ -15,24 +17,24 @@ class GildedRose {
 
 	private void updateQualityItem(Item item) {
 		if (!isAgedBrie(item) && !isBackstage(item)) {
-			if (item.quality > 0) {
+			if (item.quality > MIN_QUALITY) {
 				if (!isSulfuras(item)) {
 					item.quality = decreaseQualityByOne(item);
 				}
 			}
 		} else {
-			if (item.quality < 50) {
+			if (item.quality < MAX_QUALITY) {
 				item.quality = increaseQualityByOne(item);
 
 				if (isBackstage(item)) {
 					if (item.sellIn < 11) {
-						if (item.quality < 50) {
+						if (item.quality < MAX_QUALITY) {
 							item.quality = increaseQualityByOne(item);
 						}
 					}
 
 					if (item.sellIn < 6) {
-						if (item.quality < 50) {
+						if (item.quality < MAX_QUALITY) {
 							item.quality = increaseQualityByOne(item);
 						}
 					}
@@ -47,7 +49,7 @@ class GildedRose {
 		if (item.sellIn < 0) {
 			if (!isAgedBrie(item)) {
 				if (!isBackstage(item)) {
-					if (item.quality > 0) {
+					if (item.quality > MIN_QUALITY) {
 						if (!isSulfuras(item)) {
 							item.quality = decreaseQualityByOne(item);
 						}
@@ -56,7 +58,7 @@ class GildedRose {
 					item.quality = item.quality - item.quality;
 				}
 			} else {
-				if (item.quality < 50) {
+				if (item.quality < MAX_QUALITY) {
 					item.quality = increaseQualityByOne(item);
 				}
 			}
