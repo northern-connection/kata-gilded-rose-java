@@ -16,7 +16,7 @@ class GildedRose {
     }
 
     private void updateQualityItem(Item item) {
-        if (!isAgedBrie(item) && !isBackstage(item) && !isSulfuras(item)) {
+        if (isRegular(item)) {
             if (item.quality > MIN_QUALITY) {
                 item.quality = decreaseQualityByOne(item);
             }
@@ -67,6 +67,10 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isRegular(Item item) {
+        return !isAgedBrie(item) && !isBackstage(item) && !isSulfuras(item);
     }
 
     private int decreaseStockByOne(Item item) {
