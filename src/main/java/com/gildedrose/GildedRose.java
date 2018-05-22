@@ -17,11 +17,11 @@ class GildedRose {
 
 	private void updateQualityItem(Item item) {
 		if (!isAgedBrie(item) && !isBackstage(item)) {
-			if (item.quality > MIN_QUALITY) {
-				if (!isSulfuras(item)) {
-					item.quality = decreaseQualityByOne(item);
-				}
-			}
+            if (!isSulfuras(item)) {
+                if (item.quality > MIN_QUALITY) {
+                    item.quality = decreaseQualityByOne(item);
+                }
+            }
 		} else {
 			if (item.quality < MAX_QUALITY) {
 				item.quality = increaseQualityByOne(item);
