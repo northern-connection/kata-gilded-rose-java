@@ -21,15 +21,13 @@ class GildedRose {
                 item.quality = decreaseQualityByOne(item);
             }
         }
-        if (isAgedBrie(item))
-        {
+        if (isAgedBrie(item)) {
             if (item.quality < MAX_QUALITY) {
                 item.quality = increaseQualityByOne(item);
             }
         }
 
-        if (isBackstage(item))
-        {
+        if (isBackstage(item)) {
             if (item.quality < MAX_QUALITY) {
                 item.quality = increaseQualityByOne(item);
             }
