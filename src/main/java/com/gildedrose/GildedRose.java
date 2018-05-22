@@ -47,11 +47,14 @@ class GildedRose {
                 if (isBackstage(item)) {
                     lostAllQuality(item);
                 }
+            } else {
+            }
 
-
+            if (!isAgedBrie(item)) {
             } else {
                 increaseQualityByOne(item);
             }
+
         }
     }
 
