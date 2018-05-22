@@ -53,8 +53,8 @@ class GildedRose {
         if (item.sellIn < 0) {
             if (!isAgedBrie(item)) {
                 if (!isBackstage(item)) {
-                    if (item.quality > MIN_QUALITY) {
-                        if (!isSulfuras(item)) {
+                    if (!isSulfuras(item)) {
+                        if (item.quality > MIN_QUALITY) {
                             item.quality = decreaseQualityByOne(item);
                         }
                     }
