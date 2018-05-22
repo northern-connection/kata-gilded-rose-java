@@ -38,16 +38,20 @@ class GildedRose {
             item.sellIn = decreaseExpirationDaysByOne(item);
         }
 
-        if (item.sellIn < 0) {
-            if (!isAgedBrie(item) && !isBackstage(item) && !isSulfuras(item)) {
+        if (isRegular(item)) {
+            if (item.sellIn < 0) {
                 decreaseQualityByOne(item);
             }
+        }
 
-            if (isBackstage(item)) {
+        if (isBackstage(item)) {
+            if (item.sellIn < 0) {
                 lostAllQuality(item);
             }
+        }
 
-            if (isAgedBrie(item)) {
+        if (isAgedBrie(item)) {
+            if (item.sellIn < 0) {
                 increaseQualityByOne(item);
             }
         }
