@@ -43,7 +43,7 @@ class GildedRose {
                 decreaseQualityByOne(item);
             }
 
-            if (!isAgedBrie(item) && isBackstage(item)) {
+            if (isBackstage(item)) {
                 lostAllQuality(item);
             }
 
