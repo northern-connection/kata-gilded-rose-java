@@ -17,30 +17,20 @@ class GildedRose {
 
     private void updateQualityItem(Item item) {
         if (isRegular(item)) {
-            if (item.quality > MIN_QUALITY) {
-                item.quality = decreaseQualityByOne(item);
-            }
+            decreaseQ(item);
         }
         if (isAgedBrie(item)) {
-            if (item.quality < MAX_QUALITY) {
-                item.quality = increaseQualityByOne(item);
-            }
+            increaseQ(item);
         }
 
         if (isBackstage(item)) {
-            if (item.quality < MAX_QUALITY) {
-                item.quality = increaseQualityByOne(item);
-            }
+            increaseQ(item);
             if (item.sellIn < 11) {
-                if (item.quality < MAX_QUALITY) {
-                    item.quality = increaseQualityByOne(item);
-                }
+                increaseQ(item);
             }
 
             if (item.sellIn < 6) {
-                if (item.quality < MAX_QUALITY) {
-                    item.quality = increaseQualityByOne(item);
-                }
+                increaseQ(item);
             }
         }
 
@@ -52,18 +42,26 @@ class GildedRose {
             if (!isAgedBrie(item)) {
                 if (!isBackstage(item)) {
                     if (!isSulfuras(item)) {
-                        if (item.quality > MIN_QUALITY) {
-                            item.quality = decreaseQualityByOne(item);
-                        }
+                        decreaseQ(item);
                     }
                 } else {
                     item.quality = 0;
                 }
             } else {
-                if (item.quality < MAX_QUALITY) {
-                    item.quality = increaseQualityByOne(item);
-                }
+                increaseQ(item);
             }
+        }
+    }
+
+    private void increaseQ(Item item) {
+        if (item.quality < MAX_QUALITY) {
+            item.quality = increaseQualityByOne(item);
+        }
+    }
+
+    private void decreaseQ(Item item) {
+        if (item.quality > MIN_QUALITY) {
+            item.quality = decreaseQualityByOne(item);
         }
     }
 
