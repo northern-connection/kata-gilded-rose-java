@@ -39,22 +39,26 @@ class GildedRose {
         }
 
         if (isRegular(item)) {
-            if (item.sellIn < 0) {
+            if (hasExpired(item)) {
                 decreaseQualityByOne(item);
             }
         }
 
         if (isBackstage(item)) {
-            if (item.sellIn < 0) {
+            if (hasExpired(item)) {
                 lostAllQuality(item);
             }
         }
 
         if (isAgedBrie(item)) {
-            if (item.sellIn < 0) {
+            if (hasExpired(item)) {
                 increaseQualityByOne(item);
             }
         }
+    }
+
+    private boolean hasExpired(Item item) {
+        return item.sellIn < 0;
     }
 
     private void lostAllQuality(Item item) {
